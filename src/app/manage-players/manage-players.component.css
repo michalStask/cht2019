@@ -1,0 +1,18 @@
+.example-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/* button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+} */

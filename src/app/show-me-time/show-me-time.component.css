@@ -1,0 +1,27 @@
+.full-width {
+  width: 100%;
+  justify-items: center;
+  background: white;
+}
+
+.wrapper {
+  display: grid;
+}
+
+.row {
+  display: flex;
+  width: 70%;
+  height: 150px;
+  justify-content: space-around;
+}
+
+.row p {
+  font-size: 4.5rem;
+  color: #0edd23;
+}
+
+.show-time {
+  font-size: 10rem;
+  color: #0edd23;
+  justify-content: center;
+}

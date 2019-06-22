@@ -1,0 +1,35 @@
+<nav>
+  <a routerLink="/time">Show Time</a>
+  <a routerLink="/admin">Add Players</a>
+  <a routerLink="/players">Manage Players</a>
+</nav>
+
+<form [formGroup]="profileForm" class="example-form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" type="text" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="RFID" type="text" formControlName="rfid">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Money" type="number" formControlName="money">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <!-- <input matInput placeholder="Group" type="text" > -->
+    <mat-label>Groups</mat-label>
+    <select matNativeControl formControlName="group">
+      <option value="group1">group1</option>
+      <option value="group2">group2</option>
+      <option value="group3">group3</option>
+      <option value="group4">group4</option>
+    </select>
+  </mat-form-field>
+
+
+  <button mat-raised-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+</form>

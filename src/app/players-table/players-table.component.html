@@ -1,0 +1,77 @@
+<nav>
+  <a routerLink="/time">Show Time</a>
+  <a routerLink="/admin">Add Players</a>
+  <a routerLink="/players">Manage Players</a>
+</nav>
+
+<mat-form-field>
+  <input
+    matInput
+    (keyup)="applyFilter($event.target.value)"
+    placeholder="Filter"
+  />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="rfid">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>rfid</th>
+      <td mat-cell *matCellDef="let element">{{ element.rfid }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="money">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Money</th>
+      <td mat-cell *matCellDef="let element">{{ element.money }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="last-change">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Change</th>
+      <td mat-cell *matCellDef="let element">{{ element.changedAt | date:'short' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actual-time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actual Time</th>
+        <td mat-cell *matCellDef="let element">{{ msToHMS(actualTime(element))}}</td>
+      </ng-container>
+
+    <ng-container matColumnDef="group">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Group</th>
+      <td mat-cell *matCellDef="let element">{{ element.group }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="change">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Change</th>
+      <td mat-cell *matCellDef="let element"><input matInput [id]="element.id"  type='text' placeholder = "Change in minutes" /></td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let element"><button mat-raised-button class='rowSaveBtn' (click)="onClickSave(element)">SAVE</button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<div class="padding-top-md">
+  <button mat-raised-button (click)="clickBackup()">Backup data</button>
+  <a id='saver'></a>
+</div>
+
+<div class="padding-top-md">
+  <h3>test1</h3>
+  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".json">
+</div>

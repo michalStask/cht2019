@@ -1,0 +1,12 @@
+<input matInput id="inputId"  type='text' placeholder = "Číslo čipu" (keydown.enter)="onKey($event)"/>
+
+<div *ngIf="player" class="wrapper full-width">
+
+  <div class="row">
+    <p id="nameOutput">{{player.name}}</p>
+    <p id="groupOutput">{{player.group}}</p>
+  </div>
+
+  <p id="timeOutput" class="show-time">{{ msToHMS(actualTime(player)) }}</p>
+
+</div>
