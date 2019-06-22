@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
+most functions are in the 3 main windows:  `/time`, `/admin` and `players`
+*time* section is for players to see theire time after entering their rfid
+*admin* is for adding new players
+*players* is for managing time of existing players
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
