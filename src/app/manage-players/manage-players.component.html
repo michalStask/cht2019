@@ -4,7 +4,7 @@
   <a routerLink="/players">Manage Players</a>
 </nav>
 
-<form [formGroup]="profileForm" class="example-form" (ngSubmit)="onSubmit()">
+<form [formGroup]="profileForm" class="example-form" (keydown.enter)="$event.preventDefault()" (ngSubmit)="onSubmit()">
 
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Name" type="text" formControlName="name">

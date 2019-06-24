@@ -41,12 +41,18 @@ export function actualTime(player) {
   var difference:number = getTimeDiff(new Date(player.changedAt));
   var negative:boolean = (moneyMilisec - difference) < 0;
 
-  // console.log('actualTime moneyMilisec', moneyMilisec);
-  // console.log('actualTime difference', difference);
-  // console.log('actualTime money - diff', Math.abs(moneyMilisec - difference));
-
   if (negative) {
     return 0;
   }
   return Math.abs(moneyMilisec - difference);
+}
+
+
+
+export function getActualIteration() {
+  let iteration = localStorage.getItem('chtIterator');
+  if (iteration === null) {
+    iteration = '1';
+  }
+  return iteration;
 }

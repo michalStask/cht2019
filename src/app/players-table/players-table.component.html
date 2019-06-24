@@ -66,6 +66,12 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+
+<div class="padding-top-md">
+  <button mat-raised-button (click)="clickSaveAll()">SAVE ALL</button>
+  <a id='save-all'></a>
+</div>
+
 <div class="padding-top-md">
   <button mat-raised-button (click)="clickBackup()">Backup data</button>
   <a id='saver'></a>

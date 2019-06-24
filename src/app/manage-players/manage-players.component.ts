@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { getActualIteration } from '../functions';
 
 export interface Player {
   id: number;
@@ -17,7 +18,8 @@ export interface Player {
 })
 export class ManagePlayersComponent implements OnInit {
 
-  players = JSON.parse(localStorage.getItem('angularTest'));
+  iteration = getActualIteration();
+  players = JSON.parse(localStorage.getItem('angularTest' + this.iteration));
   actualPlayer = null;
 
   profileForm = new FormGroup({

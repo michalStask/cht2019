@@ -25,3 +25,13 @@
   color: #0edd23;
   justify-content: center;
 }
+
+input {
+  border: none;
+  /* caret-color: transparent;
+  color: transparent; */
+}
+
+input:focus{
+  outline: none;
+}
