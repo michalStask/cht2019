@@ -35,3 +35,15 @@ input {
 input:focus{
   outline: none;
 }
+
+.allright {
+  font-size: 10rem;
+  justify-content: center;
+  color:  #0edd23;
+}
+
+.warning {
+  font-size: 10rem;
+  justify-content: center;
+  color:  #ee0e0e;
+}

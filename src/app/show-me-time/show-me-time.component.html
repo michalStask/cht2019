@@ -6,7 +6,7 @@
     <p id="nameOutput">{{player.name}}</p>
     <p id="groupOutput">{{player.group}}</p>
   </div>
-
-  <p id="timeOutput" class="show-time">{{ msToHMS(actualTime(player)) }}</p>
+<!-- to miliseconds = 10min * 60  * 1000 -->
+  <p id="timeOutput" [className]="actualTime(player) > (10 * 60 * 1000) ? 'allright' : 'warning'">{{ msToHMS(actualTime(player)) }}</p>
 
 </div>
