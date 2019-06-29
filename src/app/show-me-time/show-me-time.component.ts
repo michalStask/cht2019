@@ -13,32 +13,6 @@ export interface Player {
   group: string;
 }
 
-// const PLAYERS: Player[] = [
-//   {
-//     id: 1,
-//     name: 'Miso',
-//     rfid: '123',
-//     money: 300,
-//     changedAt: new Date('19 Jun 2019, 00:00:00'),
-//     group: 'group1'
-//   },
-//   {
-//     id: 2,
-//     name: 'Jozko',
-//     rfid: '456',
-//     money: 240,
-//     changedAt: new Date('17 Jun 2019, 09:00:00'),
-//     group: 'group1'
-//   },
-//   {
-//     id: 3,
-//     name: 'Ondrej',
-//     rfid: '789',
-//     money: 1440,
-//     changedAt: new Date('20 Jun 2019, 19:00:00'),
-//     group: 'group2'
-//   }
-// ];
 
 @Component({
   selector: 'app-show-me-time',
@@ -51,6 +25,7 @@ export class ShowMeTimeComponent implements OnInit {
   players = JSON.parse(localStorage.getItem('angularTest' + this.iteration));
 
   player = null;
+  warinings = null;
 
   today: Date = new Date();
 
@@ -70,8 +45,15 @@ export class ShowMeTimeComponent implements OnInit {
     const restult = this.players.find(player => player.rfid == event.target.value);
     if (! restult) {
       console.log('WRONG RFID');
+      this.player = null;
+      this.warinings = true;
+      setTimeout(() => {
+        this.warinings = false;
+        },
+      2500);
     } else {
       console.log(restult.name);
+      this.warinings = false;
       this.player = restult;
       setTimeout(() => {
         this.player = null;
@@ -85,10 +67,6 @@ export class ShowMeTimeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.players);
-    // setInterval(() => {
-    //   this.today
-    // })
   }
 
 }

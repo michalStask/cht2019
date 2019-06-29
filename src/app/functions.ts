@@ -53,6 +53,7 @@ export function getActualIteration() {
   let iteration = localStorage.getItem('chtIterator');
   if (iteration === null) {
     iteration = '1';
+    localStorage.setItem('chtIterator' + iteration, iteration);
   }
   return iteration;
 }

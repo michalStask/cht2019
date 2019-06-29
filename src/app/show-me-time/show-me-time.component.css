@@ -6,11 +6,12 @@
 
 .wrapper {
   display: grid;
+  margin-top: 50px;
 }
 
 .row {
   display: flex;
-  width: 70%;
+  width: 95%;
   height: 150px;
   justify-content: space-around;
 }
@@ -46,4 +47,10 @@ input:focus{
   font-size: 10rem;
   justify-content: center;
   color:  #ee0e0e;
+}
+
+#warnMessage {
+  color:  #ee0e0e;
+  font-size: 10rem;
+  text-align: center;
 }

@@ -8,5 +8,8 @@
   </div>
 <!-- to miliseconds = 10min * 60  * 1000 -->
   <p id="timeOutput" [className]="actualTime(player) > (10 * 60 * 1000) ? 'allright' : 'warning'">{{ msToHMS(actualTime(player)) }}</p>
+</div>
 
+<div *ngIf="warinings" class="wrapper full-width">
+  <p id="warnMessage">Nesprávne číslo</p>
 </div>

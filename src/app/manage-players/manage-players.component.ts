@@ -33,8 +33,13 @@ export class ManagePlayersComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+    let tmpId = 0;
+    if (this.players.length > 0) {
+      tmpId = this.players[this.players.length - 1].id + 1;
+    };
+
     this.actualPlayer = {
-      id: this.players[this.players.length - 1].id + 1,
+      id: tmpId,
       name: this.profileForm.value.name,
       rfid: this.profileForm.value.rfid,
       money: this.profileForm.value.money,
@@ -45,12 +50,16 @@ export class ManagePlayersComponent implements OnInit {
     console.log('New Player:', this.actualPlayer);
     this.players.push(this.actualPlayer);
     console.log('New Player:', this.players);
-    localStorage.setItem('angularTest', JSON.stringify(this.players));
+    localStorage.setItem('angularTest' + this.iteration, JSON.stringify(this.players));
+    this.profileForm.reset();
   }
 
   constructor() { }
 
   ngOnInit() {
+    if (!this.players) {
+      this.players = [];
+    }
   }
 
 }
